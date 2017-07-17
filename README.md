@@ -1,10 +1,14 @@
 # mlirs_run_use
 
+srilm 安装
+
 
 libiconv-1.14:
     安装 srilm的依赖库   http://blog.csdn.net/ownfire/article/details/47276219 
-    srclib/stdio.in.h 第698行修改如下：
+    srclib/stdio.in.h 第698行修改如下： (已经修改过了)
+
         -_GL_WARN_ON_USE (gets, "gets is a security hole - use fgets instead");
+
         +#if defined(__GLIBC__) && !defined(__UCLIBC__) && !__GLIBC_PREREQ(2, 16)
         + _GL_WARN_ON_USE (gets, "gets is a security hole - use fgets instead");
         +#endif

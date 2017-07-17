@@ -13,7 +13,7 @@
 #
 
    # Use the GNU C compiler.
-   GCC_FLAGS = -march=athlon64 -m64 -Wall -Wno-unused-variable -Wno-uninitialized
+   GCC_FLAGS = -march=athlon64 -m64 -liconv -Wall -Wno-unused-variable -Wno-uninitialized
    CC = $(GCC_PATH)gcc $(GCC_FLAGS) -Wimplicit-int
    CXX = $(GCC_PATH)g++ $(GCC_FLAGS) -DINSTANTIATE_TEMPLATES
 

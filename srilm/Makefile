@@ -5,6 +5,7 @@
 #
 
 # SRILM = /home/speech/stolcke/project/srilm/devel
+SRILM = $(PWD)
 MACHINE_TYPE := $(shell $(SRILM)/sbin/machine-type)
 
 RELEASE := $(shell cat RELEASE)
