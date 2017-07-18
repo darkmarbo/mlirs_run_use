@@ -4,6 +4,16 @@ srilm 安装
 
 
 libiconv-1.14:
+    首先检查是否有 libiconv 库 : 
+        locate libiconv.so.2
+                在makefiel文件中使用-liconv调用libiconv动态库文件时，
+                若出现“error while loading sharedlibraries: libiconv.so.2”错误，解决方法为：
+                $updatedb
+                $locate libiconv.so.2
+                $ln -s /usr/local/lib/libiconv.so.2 /usr/lib/libiconv.so.2
+                $ln -s /usr/local/lib/libiconv.so /usr/lib/libiconv.so
+                $ldconfig
+
     安装 srilm的依赖库   http://blog.csdn.net/ownfire/article/details/47276219 
     srclib/stdio.in.h 第698行修改如下： (已经修改过了)
 
@@ -38,6 +48,7 @@ srilm:
             i686-m64:
                 GCC_FLAGS = -march=athlon64 -m64  -liconv  -Wall \
                             -Wno-unused-variable -Wno-uninitialized
+
 
             i686-gcc4:不需要修改
     　　　　　GCC_FLAGS = -mtune=pentium3 -Wall -Wno-unused-variable -Wno-uninitialized
