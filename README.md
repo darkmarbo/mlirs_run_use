@@ -3,7 +3,7 @@
 srilm 安装
 
 
-libiconv-1.14:
+libiconv-1.14: 发现安装srilm失败的时候 在安装这个
     首先检查是否有 libiconv 库 : 
         locate libiconv.so.2
                 在makefiel文件中使用-liconv调用libiconv动态库文件时，
@@ -49,6 +49,7 @@ srilm:
                 GCC_FLAGS = -march=athlon64 -m64  -liconv  -Wall \
                             -Wno-unused-variable -Wno-uninitialized
 
+                28上 把-liconv 去掉 也能安装 同时也不需要安装libiconv了
 
             i686-gcc4:不需要修改
     　　　　　GCC_FLAGS = -mtune=pentium3 -Wall -Wno-unused-variable -Wno-uninitialized
@@ -98,6 +99,15 @@ srilm:
         /usr/lib
     然后调用  ldconfig  重新加载配置即可。
     【 /usr/local/lib64 目录下的 libstdc++.so.6.0.20】
+
+
+修改代码:
+
+srilm/lm/src/LM.cc 
+    LM::pplFile 函数 : 计算ppl  OOV个数输出 
+        LM::sentenceProb
+
+
 
 
 

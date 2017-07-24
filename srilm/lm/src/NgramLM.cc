@@ -732,8 +732,8 @@ Ngram::read(File &file, Boolean limitVocab)
 		 */
 		BOnode *bonode = contexts.find(&wids[1]);
 		if (!bonode) {
-		    file.position() << "warning: no bow for prefix of ngram \""
-				    << &words[1] << "\"\n";
+		    //file.position() << "warning: no bow for prefix of ngram \""
+			//	    << &words[1] << "\"\n";
 		} else {
 		    if (!warnedAboutUnk &&
 			wids[0] == vocab.unkIndex() &&
